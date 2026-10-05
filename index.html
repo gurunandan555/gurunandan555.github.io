@@ -1,205 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gurunandan Anand | Senior DevOps Engineer</title>
+<meta name="description" content="Portfolio of Gurunandan Anand, Senior DevOps Engineer with 6+ years across AWS, Google Cloud, Kubernetes, CI/CD, Linux and security testing. Based in Chennai.">
+<meta name="author" content="Gurunandan Anand">
+<meta property="og:title" content="Gurunandan Anand | Senior DevOps Engineer">
+<meta property="og:description" content="6+ years running production infrastructure: AWS, GCP, Kubernetes, CI/CD, databases and security testing.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%2314202B'/%3E%3Cpath d='M22 66h56v10H22zM22 45h56v10H22zM22 24h56v10H22z' fill='%23E0A100'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF1F4;
+  --surface:#FFFFFF;
+  --ink:#14202B;
+  --muted:#4B5B69;
+  --line:#CBD4DC;
+  --rail:#2B5C8A;
+  --signal:#E0A100;
+  --signal-ink:#6B4C00;
+  --display:"Bricolage Grotesque",Georgia,"Times New Roman",serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1821;--surface:#17232F;--ink:#E8EEF3;--muted:#9CAEBD;--line:#2B3B49;--rail:#6FA8DC;--signal:#F2B91F;--signal-ink:#F2B91F;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1821;--surface:#17232F;--ink:#E8EEF3;--muted:#9CAEBD;--line:#2B3B49;--rail:#6FA8DC;--signal:#F2B91F;--signal-ink:#F2B91F;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--signal);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
-        <link rel="stylesheet" href="assets/css/styles.css">
+/* top bar */
+header.bar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;text-decoration:none;font-size:1.1rem}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem}
+nav a:hover{color:var(--ink)}
+.theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:6px 14px;font:inherit;font-size:.85rem;cursor:pointer}
+.theme:hover{border-color:var(--ink)}
 
-        <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+/* hero */
+.hero{padding:72px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,6.4vw,4.75rem);line-height:1;letter-spacing:-.03em;margin:0 0 20px}
+.hero .role{font-family:var(--display);font-weight:500;font-size:1.35rem;color:var(--rail);margin:0 0 20px}
+.hero p.lede{max-width:52ch;color:var(--muted);margin:0 0 28px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:600;text-decoration:none;border:2px solid var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn.primary:hover{background:var(--rail);border-color:var(--rail)}
+.btn.ghost:hover{background:var(--surface)}
+.meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:28px;color:var(--muted);font-size:.95rem}
 
-        <title>Portfolio website complete</title>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#" class="nav__logo">Marlon</a>
-                </div>
+/* the one memorable element: career as a stack */
+.stack{display:flex;flex-direction:column;gap:10px}
+.layer{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--rail);border-radius:10px;padding:16px 20px;transform-origin:left center}
+.layer b{display:block;font-family:var(--display);font-size:1.1rem}
+.layer span{display:block;color:var(--muted);font-size:.92rem}
+.layer time{float:right;font-weight:600;color:var(--signal-ink);font-size:.9rem}
+.layer.top{border-left-color:var(--signal)}
+.stack-note{font-size:.85rem;color:var(--muted);margin:6px 0 0}
+@media (prefers-reduced-motion:no-preference){
+  .layer{animation:build .6s cubic-bezier(.2,.7,.2,1) both}
+  .layer:nth-child(3){animation-delay:.05s}
+  .layer:nth-child(2){animation-delay:.25s}
+  .layer:nth-child(1){animation-delay:.45s}
+  @keyframes build{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+}
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                    </ul>
-                </div>
+/* sections */
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,3.6vw,2.4rem);letter-spacing:-.02em;margin:0 0 8px;line-height:1.1}
+.sub{color:var(--muted);margin:0 0 36px;max-width:60ch}
+h3{font-family:var(--display);font-weight:700;font-size:1.2rem;margin:0 0 6px;line-height:1.25}
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </nav>
-        </header>
+/* selected work: a plain ledger, not cards */
+.work{display:grid;gap:0}
+.work article{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--line)}
+.work article:first-child{padding-top:0}
+.work .fig{font-family:var(--display);font-weight:800;font-size:2.2rem;line-height:1;letter-spacing:-.02em;color:var(--rail)}
+.work .fig small{display:block;font-family:var(--body);font-weight:500;font-size:.85rem;color:var(--muted);letter-spacing:0;margin-top:6px}
+.work p{margin:0;color:var(--muted);max-width:62ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0;padding:0;list-style:none}
+.tags li{font-size:.82rem;padding:3px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted)}
 
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home bd-grid" id="home">
-                <div class="home__data">
-                    <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Marlon</span><br> Web Designer</h1>
+/* experience timeline */
+.timeline{position:relative;margin:0;padding:0 0 0 28px;list-style:none;border-left:3px solid var(--rail)}
+.timeline>li{position:relative;padding-bottom:44px}
+.timeline>li:last-child{padding-bottom:0}
+.timeline>li::before{content:"";position:absolute;left:-39px;top:8px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--rail)}
+.timeline>li.now::before{background:var(--signal);border-color:var(--signal)}
+.when{font-weight:600;color:var(--signal-ink);font-size:.92rem}
+.org{color:var(--muted);margin:0 0 12px}
+details{margin-top:10px;border-top:1px solid var(--line)}
+details summary{cursor:pointer;padding:12px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";font-weight:500;color:var(--muted);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"\2212"}
+details ul{margin:0 0 14px;padding-left:20px;color:var(--muted)}
+details li{margin-bottom:6px;max-width:72ch}
 
-                    <a href="#" class="button">Contact</a>
-                </div>
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px 40px}
+.skills h3{font-size:1.05rem;border-bottom:2px solid var(--signal);display:inline-block;padding-bottom:2px;margin-bottom:10px}
+.skills p{margin:0;color:var(--muted)}
 
-                <div class="home__social">
-                    <a href="" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                    <a href="" class="home__social-icon"><i class='bx bxl-behance' ></i></a>
-                    <a href="" class="home__social-icon"><i class='bx bxl-github' ></i></a>
-                </div>
+/* credentials */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.plain{list-style:none;margin:0;padding:0}
+.plain li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.plain li span:last-child{color:var(--muted);white-space:nowrap}
+.edu p{margin:2px 0 0;color:var(--muted)}
+.edu div{padding:12px 0;border-bottom:1px solid var(--line)}
 
-                <div class="home__img">
-                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <mask id="mask0" mask-type="alpha">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                        </mask>
-                        <g mask="url(#mask0)">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                            <image class="home__blob-img" x="50" y="60" href="assets/img/perfil.png"/>
-                        </g>
-                    </svg>
-                </div>
-            </section>
+/* contact */
+.contact h2{font-size:clamp(2rem,5vw,3.2rem)}
+.contact a.mail{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,3.4vw,2rem);word-break:break-all}
+.phone{margin:12px 0 0;font-size:1.15rem;font-weight:500}
+.links{display:flex;gap:24px;flex-wrap:wrap;margin-top:24px}
+footer{padding:28px 0 40px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
 
-            <!--===== ABOUT =====-->
-            <section class="about section " id="about">
-                <h2 class="section-title">About</h2>
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px}
+  .work article{grid-template-columns:1fr;gap:10px}
+  .two{grid-template-columns:1fr;gap:36px}
+  .hero{padding-top:44px}
+}
+</style>
+</head>
+<body>
 
-                <div class="about__container bd-grid">
-                    <div class="about__img">
-                        <img src="assets/img/about.jpg" alt="">
-                    </div>
-                    
-                    <div>
-                        <h2 class="about__subtitle">I'am Guru</h2>
-                        <p class="about__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate cum expedita quo culpa tempora, assumenda, quis fugiat ut voluptates soluta, aut earum nemo recusandae cumque perferendis! Recusandae alias accusamus atque.</p>           
-                    </div>                                   
-                </div>
-            </section>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top">Gurunandan Anand</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="theme" id="theme" type="button" aria-label="Switch colour theme">Theme</button>
+  </div>
+</header>
 
-            <!--===== SKILLS =====-->
-            <section class="skills section" id="skills">
-                <h2 class="section-title">Skills</h2>
+<main id="top">
 
-                <div class="skills__container bd-grid">          
-                    <div>
-                        <h2 class="skills__subtitle">Profesional Skills</h2>
-                        <p class="skills__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit optio id vero amet, alias architecto consectetur error eum eaque sit.</p>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-html5 skills__icon'></i>
-                                <span class="skills__name">HTML5</span>
-                            </div>
-                            <div class="skills__bar skills__html">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Gurunandan Anand</h1>
+      <p class="role">Senior DevOps Engineer</p>
+      <p class="lede">I keep production systems running and ship changes to them safely. Over 6 years I have moved from Linux servers and firewalls to web and application tiers, Kubernetes on AWS, GitHub Actions pipelines and Google Cloud, with security testing along the way.</p>
+      <div class="actions">
+        <a class="btn primary" href="assets/resume.pdf">Download resume</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+      <div class="meta">
+        <span>Chennai, India</span>
+        <span>Open to senior DevOps and cloud roles</span>
+      </div>
+    </div>
 
-                            </div>
-                            <div>
-                                <span class="skills__percentage">95%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-css3 skills__icon'></i>
-                                <span class="skills__name">CSS3</span>
-                            </div>
-                            <div class="skills__bar skills__css">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">85%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-javascript skills__icon' ></i>
-                                <span class="skills__name">JAVASCRIPT</span>
-                            </div>
-                            <div class="skills__bar skills__js">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">65%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxs-paint skills__icon'></i>
-                                <span class="skills__name">UX/UI</span>
-                            </div>
-                            <div class="skills__bar skills__ux">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">85%</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>              
-                        <img src="assets/img/work3.jpg" alt="" class="skills__img">
-                    </div>
-                </div>
-            </section>
+    <div>
+      <div class="stack" role="list" aria-label="How my work has grown, from the base layer up">
+        <div class="layer top" role="listitem">
+          <time>2025 – now</time>
+          <b>Cloud, pipelines and security</b>
+          <span>Google Cloud, GitHub Actions, MongoDB, API and Android penetration testing</span>
+        </div>
+        <div class="layer" role="listitem">
+          <time>2020 – 2024</time>
+          <b>Platforms and delivery</b>
+          <span>AWS, EKS, Docker, Jenkins, GitLab, Nginx, WebLogic, Oracle RDS</span>
+        </div>
+        <div class="layer" role="listitem">
+          <time>2018 – 2020</time>
+          <b>Foundations</b>
+          <span>150+ Linux servers, firewalls, networking, Office 365</span>
+        </div>
+      </div>
+      <p class="stack-note">Each layer rests on the one below it.</p>
+    </div>
+  </div>
+</div>
 
-            <!--===== WORK =====-->
-            <section class="work section" id="work">
-                <h2 class="section-title">Work</h2>
+<section id="work">
+  <div class="wrap">
+    <h2>Selected work</h2>
+    <p class="sub">Projects from my roles where the outcome can be measured.</p>
+    <div class="work">
 
-                <div class="work__container bd-grid">
-                    <a href="" class="work__img">
-                        <img src="assets/img/work1.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work2.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work3.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work4.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work5.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work6.jpg" alt="">
-                    </a>
-                </div>
-            </section>
+      <article>
+        <div class="fig">100+<small>repositories</small></div>
+        <div>
+          <h3>SVN to Git migration</h3>
+          <p>Moved more than 100 repositories from Subversion to Git with full commit history and tags intact. Introduced Git tags for release tracking and trained teams on Git Flow and trunk-based development.</p>
+          <ul class="tags"><li>Git</li><li>SVN</li><li>GitLab</li><li>Bitbucket</li></ul>
+        </div>
+      </article>
 
-            <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
-                <h2 class="section-title">Contact</h2>
+      <article>
+        <div class="fig">300+<small>rewrite rules</small></div>
+        <div>
+          <h3>Apache to Nginx migration</h3>
+          <p>Moved web server configuration from Apache to Nginx, converting over 300 rewrite rules of different types. Added reverse proxy, load balancing and caching to improve speed and uptime.</p>
+          <ul class="tags"><li>Nginx</li><li>Apache</li><li>Load balancing</li><li>SSL/TLS</li></ul>
+        </div>
+      </article>
 
-                <div class="contact__container bd-grid">
-                    <form action="" class="contact__form">
-                        <input type="text" placeholder="Name" class="contact__input">
-                        <input type="mail" placeholder="Email" class="contact__input">
-                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <input type="button" value="Enviar" class="contact__button button">
-                    </form>
-                </div>
-            </section>
-        </main>
+      <article>
+        <div class="fig">Zero<small>downtime goal</small></div>
+        <div>
+          <h3>Automated deployments with GitHub Actions</h3>
+          <p>Built build, test and deploy workflows for every environment. Worked with Dev and QA to add unit, integration and security checks early, and rolled out releases using blue-green, rolling and canary strategies. Release failures dropped and delivery got faster.</p>
+          <ul class="tags"><li>GitHub Actions</li><li>Blue-green</li><li>Canary</li><li>CI/CD</li></ul>
+        </div>
+      </article>
 
-        <!--===== FOOTER =====-->
-        <footer class="footer">
-            <p class="footer__title">Marlon</p>
-            <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
-            </div>
-            <p class="footer__copy">&#169; Bedimcode. All rigths reserved</p>
-        </footer>
+      <article>
+        <div class="fig">Oracle<small>to AWS RDS</small></div>
+        <div>
+          <h3>Database migration and disaster recovery</h3>
+          <p>Migrated a standard Oracle database to Amazon RDS for Oracle. Set up PostgreSQL multi-master replication for DR and production, and helped write a disaster recovery plan for business continuity.</p>
+          <ul class="tags"><li>Oracle RDS</li><li>PostgreSQL</li><li>Replication</li><li>DR planning</li></ul>
+        </div>
+      </article>
 
+      <article>
+        <div class="fig">8.0<small>MongoDB</small></div>
+        <div>
+          <h3>MongoDB upgrade, backups and multi-region setup</h3>
+          <p>Upgraded MongoDB 7.0 to 8.0, moved from a free to a paid cluster for more storage, IOPS and connections, scheduled daily backups, and configured multi-region deployments for DR.</p>
+          <ul class="tags"><li>MongoDB</li><li>Backups</li><li>Multi-region</li></ul>
+        </div>
+      </article>
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+      <article>
+        <div class="fig">150+<small>Linux servers</small></div>
+        <div>
+          <h3>Linux and firewall operations for multiple clients</h3>
+          <p>Managed more than 150 RHEL, Ubuntu and CentOS servers, hardened them to client security requirements, and configured Fortinet, Cisco ASA, Sophos, SonicWall, Juniper SRX and WatchGuard firewalls.</p>
+          <ul class="tags"><li>RHEL</li><li>Hardening</li><li>iptables</li><li>VPN</li></ul>
+        </div>
+      </article>
 
-        <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
-    </body>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="sub">Open a role to see what I did there.</p>
+
+    <ol class="timeline">
+
+      <li class="now">
+        <div class="when">Apr 2025 – present</div>
+        <h3>DevOps Engineer</h3>
+        <p class="org">GAI TechWide Private Limited, Chennai</p>
+
+        <details open>
+          <summary>Google Cloud administration</summary>
+          <ul>
+            <li>Provision and manage serverless App Engine workloads.</li>
+            <li>Manage IAM roles, permissions and cloud identity.</li>
+            <li>Configure and monitor VPC networking and firewalls.</li>
+            <li>Tune infrastructure for performance, scalability and cost.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>CI/CD and source control</summary>
+          <ul>
+            <li>Build and maintain GitHub Actions workflows for build, test and deploy across all environments.</li>
+            <li>Administer GitHub repositories, access controls, branching strategies and pull request practice for several teams.</li>
+            <li>Roll out releases with blue-green, rolling and canary methods.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Security testing</summary>
+          <ul>
+            <li>End-to-end vulnerability testing of APIs and Android applications.</li>
+            <li>Simulated real-world attacks, then applied fixes from the findings.</li>
+            <li>Wrote assessment reports with actionable recommendations.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Databases and SSL certificates</summary>
+          <ul>
+            <li>MongoDB backup policies, multi-region DR, cluster upgrade and version upgrade to 8.0.</li>
+            <li>Track, generate, install and renew SSL certificates and PGP keys.</li>
+          </ul>
+        </details>
+      </li>
+
+      <li>
+        <div class="when">Oct 2020 – Dec 2024</div>
+        <h3>DevOps Engineer</h3>
+        <p class="org">VastPRO Technologies Pvt. Ltd., Chennai. Worked across multiple clients.</p>
+
+        <details open>
+          <summary>Web and application servers</summary>
+          <ul>
+            <li>Ran Apache, Nginx, IIS and Tomcat plus WebLogic, WebSphere, JBoss and Fuse across Dev, Stage and Production on AWS.</li>
+            <li>Tuned JVM, thread pool and connection pool settings; managed clusters and failover.</li>
+            <li>Monitored with Prometheus, ELK and Splunk, and wrote scripts for uptime checks.</li>
+            <li>Applied firewall rules and patching to guard against XSS, CSRF and SQL injection.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Containers and Kubernetes</summary>
+          <ul>
+            <li>Installed and managed Kubernetes clusters on AWS EKS and built Docker images.</li>
+            <li>Applied RBAC, network policies, secrets handling and secure image practices.</li>
+            <li>Configured autoscaling, auto-healing and zero-downtime deployments.</li>
+            <li>Monitored with Prometheus, Grafana, Lens and ELK.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>CI/CD and source control</summary>
+          <ul>
+            <li>Designed pipelines in Jenkins, GitLab CI and Azure DevOps with unit, integration and security testing built in.</li>
+            <li>Managed Git in GitLab, Bitbucket and Azure DevOps, including self-hosted servers.</li>
+            <li>Migrated 100+ repositories from SVN to Git and introduced tagging for releases.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>AWS and databases</summary>
+          <ul>
+            <li>Configured EC2, VPC, IAM, RDS, ALB and NLB, S3 and SNS, with auto scaling and backups.</li>
+            <li>Audited AWS configuration against CIS and NIST guidance.</li>
+            <li>Administered RDS for MySQL, PostgreSQL, SQL Server and Oracle; migrated Oracle to RDS.</li>
+            <li>Set up PostgreSQL multi-master replication and contributed to the DR plan.</li>
+            <li>Mentored junior administrators on AWS best practices.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>CDN, security and performance testing</summary>
+          <ul>
+            <li>Configured Akamai CDN, WAF and Bot Manager, including Property Manager and caching rules.</li>
+            <li>Ran penetration tests on web apps, APIs, cloud infrastructure and endpoints.</li>
+            <li>Designed load, stress and endurance tests in JMeter and BlazeMeter, and used the results for capacity planning.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Batch, ETL, Linux and Microsoft 365</summary>
+          <ul>
+            <li>Scheduled daily, weekly, monthly and ad hoc jobs in Control-M.</li>
+            <li>Installed, upgraded and managed Informatica PowerCenter.</li>
+            <li>Administered RHEL, CentOS and Ubuntu: patching, hardening, DNS, DHCP, NFS, SELinux and backups. Provided level 2 and 3 support.</li>
+            <li>Administered Office 365 and led Exchange and file server migrations to the cloud.</li>
+            <li>Maintained Jira and Azure DevOps boards, workflows and permissions.</li>
+          </ul>
+        </details>
+      </li>
+
+      <li>
+        <div class="when">Jun 2018 – Sep 2020</div>
+        <h3>Assistant System Analyst</h3>
+        <p class="org">Spintop Technologies Pvt. Ltd., Chennai</p>
+
+        <details open>
+          <summary>Linux and network security</summary>
+          <ul>
+            <li>Managed more than 150 Linux servers (RHEL, Ubuntu, CentOS) for multiple clients.</li>
+            <li>Handled storage with LVM, ext4, XFS, NFS, SMB, iSCSI and SAN/NAS.</li>
+            <li>Hardened servers, managed SSH access and sudo, and wrote shell scripts for backups, log rotation and monitoring.</li>
+            <li>Configured Fortinet, Cisco ASA, Sophos UTM, SonicWall, Juniper SRX and WatchGuard firewalls, plus VPNs.</li>
+          </ul>
+        </details>
+        <details>
+          <summary>IT support and Office 365</summary>
+          <ul>
+            <li>First and second line support for hardware, software and Active Directory accounts.</li>
+            <li>Managed Office 365 tenants for several clients: Exchange Online, SharePoint, Teams, OneDrive and Intune.</li>
+          </ul>
+        </details>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="sub">Tools I have used in real environments.</p>
+    <div class="skills">
+      <div><h3>Cloud</h3><p>AWS, Google Cloud, Azure, Oracle Cloud</p></div>
+      <div><h3>Containers</h3><p>Docker, Kubernetes (EKS), Service Mesh</p></div>
+      <div><h3>CI/CD</h3><p>GitHub Actions, Jenkins, GitLab CI, Azure DevOps</p></div>
+      <div><h3>Source control</h3><p>Git, SVN, GitHub, GitLab, Bitbucket</p></div>
+      <div><h3>Build and scripting</h3><p>Bash, Groovy, Python, Gradle, Ant</p></div>
+      <div><h3>Web and app servers</h3><p>Nginx, Apache, Tomcat, WebLogic, JBoss, WebSphere</p></div>
+      <div><h3>Databases</h3><p>PostgreSQL, MySQL, Oracle, MongoDB, DynamoDB</p></div>
+      <div><h3>Operating systems</h3><p>Ubuntu, CentOS, RHEL, Oracle Linux, Windows</p></div>
+      <div><h3>Monitoring and logs</h3><p>Prometheus, Grafana, Splunk, Datadog, New Relic, Dynatrace, ELK</p></div>
+      <div><h3>Security testing</h3><p>Burp Suite, SonarQube, API and Android penetration testing</p></div>
+      <div><h3>Performance testing</h3><p>Apache JMeter, BlazeMeter</p></div>
+      <div><h3>Other platforms</h3><p>Akamai, Control-M, Informatica PowerCenter, Jira, Office 365</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="credentials">
+  <div class="wrap two">
+    <div>
+      <h2>Certifications</h2>
+      <p class="sub">Training and certificates.</p>
+      <ul class="plain">
+        <li><span>AWS Certified Solutions Architect, Associate</span><span>2025</span></li>
+        <li><span>Microservices, Kubernetes, Service Mesh, CI/CD</span><span>2025</span></li>
+        <li><span>Informatica PowerCenter Administration</span><span>2025</span></li>
+        <li><span>Batch Processing with Spring Batch and Spring Boot</span><span>2025</span></li>
+        <li><span>AWS Identity and Access Management deep dive</span><span>2025</span></li>
+        <li><span>AWS Security: Encryption Fundamentals</span><span>2025</span></li>
+        <li><span>AWS Cloud Practitioner Essentials</span><span>2023</span></li>
+        <li><span>AWS Technical Essentials</span><span>2023</span></li>
+      </ul>
+    </div>
+    <div class="edu">
+      <h2>Education</h2>
+      <p class="sub">Degrees.</p>
+      <div>
+        <h3>Master of Business Administration, Systems Management</h3>
+        <p>Bharathidasan University, Tiruchirappalli. Jun 2021 – Nov 2024</p>
+      </div>
+      <div>
+        <h3>Bachelor of Science</h3>
+        <p>Bharathiyar University, Coimbatore. May 2015 – Jun 2020</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p class="sub">I am open to senior DevOps, cloud and platform roles. Email or call, whichever suits you.</p>
+    <a class="mail" href="mailto:gurunandan555@gmail.com">gurunandan555@gmail.com</a>
+    <p class="phone"><a href="tel:+919952982103">+91 99529 82103</a></p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/gurunandan555/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="assets/resume.pdf">Resume (PDF)</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">&copy; <span id="yr">2026</span> Gurunandan Anand. Chennai, India.</div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  (function(){
+    var root = document.documentElement, btn = document.getElementById('theme');
+    try { var saved = localStorage.getItem('theme'); if (saved) root.setAttribute('data-theme', saved); } catch(e){}
+    btn.addEventListener('click', function(){
+      var dark = root.getAttribute('data-theme') === 'dark' ||
+        (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      var next = dark ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch(e){}
+    });
+  })();
+</script>
+</body>
 </html>
